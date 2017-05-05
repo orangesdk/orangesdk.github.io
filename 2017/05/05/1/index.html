@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="不忘初心,方得始终">
+<meta name="description" content="本文以ubuntu 14为例,介绍java基本开发环境多安装,步骤如下: 安装内容：  安装git       安装jenv    安装jdk      安装maven        安装idea      一、安装git1$ sudo apt-install git 二、安装jenv安装jenv1$ curl -L -s get.jenv.io | bash 更新jenv仓库1$ jenv re">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux 安装开发环境(一)">
+<meta property="og:title" content="linux 开发环境安装(一)">
 <meta property="og:url" content="https://orangesdk.github.io/2017/05/05/1/index.html">
 <meta property="og:site_name" content="程序员的江湖">
-<meta property="og:description" content="不忘初心,方得始终">
-<meta property="og:updated_time" content="2017-05-05T09:20:41.060Z">
+<meta property="og:description" content="本文以ubuntu 14为例,介绍java基本开发环境多安装,步骤如下: 安装内容：  安装git       安装jenv    安装jdk      安装maven        安装idea      一、安装git1$ sudo apt-install git 二、安装jenv安装jenv1$ curl -L -s get.jenv.io | bash 更新jenv仓库1$ jenv re">
+<meta property="og:updated_time" content="2017-05-05T10:07:56.849Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux 安装开发环境(一)">
-<meta name="twitter:description" content="不忘初心,方得始终">
+<meta name="twitter:title" content="linux 开发环境安装(一)">
+<meta name="twitter:description" content="本文以ubuntu 14为例,介绍java基本开发环境多安装,步骤如下: 安装内容：  安装git       安装jenv    安装jdk      安装maven        安装idea      一、安装git1$ sudo apt-install git 二、安装jenv安装jenv1$ curl -L -s get.jenv.io | bash 更新jenv仓库1$ jenv re">
 
 
 
@@ -134,7 +134,7 @@
 
 
 
-  <title>linux 安装开发环境(一) | 程序员的江湖</title>
+  <title>linux 开发环境安装(一) | 程序员的江湖</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -298,7 +298,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">linux 安装开发环境(一)</h1>
+          <h1 class="post-title" itemprop="name headline">linux 开发环境安装(一)</h1>
         
 
         <div class="post-meta">
@@ -345,7 +345,26 @@
       
 
       
-        
+        <p>本文以ubuntu 14为例,介绍java基本开发环境多安装,步骤如下:</p>
+<p><strong>安装内容：</strong></p>
+<ol>
+<li>安装<a href="https://git-scm.com/" target="_blank" rel="external">git</a>      </li>
+<li>安装<a href="http://jenv.io/" target="_blank" rel="external">jenv</a>   </li>
+<li>安装<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="external">jdk</a>     </li>
+<li>安装<a href="http://maven.apache.org/" target="_blank" rel="external">maven</a>       </li>
+<li>安装<a href="http://www.jetbrains.com/idea/" target="_blank" rel="external">idea</a>    </li>
+</ol>
+<h2 id="一、安装git"><a href="#一、安装git" class="headerlink" title="一、安装git"></a>一、安装git</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-install git</div></pre></td></tr></table></figure>
+<h2 id="二、安装jenv"><a href="#二、安装jenv" class="headerlink" title="二、安装jenv"></a>二、安装jenv</h2><h6 id="安装jenv"><a href="#安装jenv" class="headerlink" title="安装jenv"></a><strong>安装jenv</strong></h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ curl -L <span class="_">-s</span> get.jenv.io | bash</div></pre></td></tr></table></figure>
+<h6 id="更新jenv仓库"><a href="#更新jenv仓库" class="headerlink" title="更新jenv仓库"></a><strong>更新jenv仓库</strong></h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ jenv repo update</div></pre></td></tr></table></figure>
+<h2 id="三、安装jdk"><a href="#三、安装jdk" class="headerlink" title="三、安装jdk"></a>三、安装jdk</h2><h6 id="查看所有jdk版本"><a href="#查看所有jdk版本" class="headerlink" title="查看所有jdk版本"></a><strong>查看所有jdk版本</strong></h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ jenv list java</div></pre></td></tr></table></figure>
+<h6 id="选择jdk-1-8-0-91版本进行安装"><a href="#选择jdk-1-8-0-91版本进行安装" class="headerlink" title="选择jdk 1.8.0_91版本进行安装"></a><strong>选择jdk 1.8.0_91版本进行安装</strong></h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ jenv install java 1.8.0_91</div></pre></td></tr></table></figure>
+<h2 id="四、安装maven"><a href="#四、安装maven" class="headerlink" title="四、安装maven"></a>四、安装maven</h2><h6 id="查看所有maven版本"><a href="#查看所有maven版本" class="headerlink" title="查看所有maven版本"></a><strong>查看所有maven版本</strong></h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ jenv list maven</div></pre></td></tr></table></figure>
+<h6 id="选择maven-3-3-3版本进行安装"><a href="#选择maven-3-3-3版本进行安装" class="headerlink" title="选择maven 3.3.3版本进行安装"></a><strong>选择maven 3.3.3版本进行安装</strong></h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ jenv install maven 3.3.3</div></pre></td></tr></table></figure>
+<h2 id="五、安装idea"><a href="#五、安装idea" class="headerlink" title="五、安装idea"></a>五、安装idea</h2><h6 id="下载idea"><a href="#下载idea" class="headerlink" title="下载idea"></a><strong>下载idea</strong></h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ wget https://download.jetbrains.com/idea/ideaIU-2017.1.2.tar.gz</div></pre></td></tr></table></figure>
+<h6 id="进入压缩包所在目录-解压idea目录"><a href="#进入压缩包所在目录-解压idea目录" class="headerlink" title="进入压缩包所在目录,解压idea目录"></a><strong>进入压缩包所在目录,解压idea目录</strong></h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ tar -zxvf ideaIU-2017.1.2.tar.gz</div></pre></td></tr></table></figure>
+<h6 id="建立软链接-本文idea目录-home-winstar-ideaIU-2017-1-2-bin-idea-实际根据自己的idea目录"><a href="#建立软链接-本文idea目录-home-winstar-ideaIU-2017-1-2-bin-idea-实际根据自己的idea目录" class="headerlink" title="建立软链接,本文idea目录(/home/winstar/ideaIU-2017.1.2/bin/idea),实际根据自己的idea目录"></a><strong>建立软链接,本文idea目录(/home/winstar/ideaIU-2017.1.2/bin/idea),实际根据自己的idea目录</strong></h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo ln <span class="_">-s</span>  /home/winstar/ideaIU-2017.1.2/bin/idea  /usr/<span class="built_in">local</span>/bin/idea</div></pre></td></tr></table></figure>
+<h6 id="启动idea"><a href="#启动idea" class="headerlink" title="启动idea"></a><strong>启动idea</strong></h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ idea</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -426,8 +445,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -480,6 +508,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、安装git"><span class="nav-number">1.</span> <span class="nav-text">一、安装git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、安装jenv"><span class="nav-number">2.</span> <span class="nav-text">二、安装jenv</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#安装jenv"><span class="nav-number">2.0.0.0.1.</span> <span class="nav-text">安装jenv</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#更新jenv仓库"><span class="nav-number">2.0.0.0.2.</span> <span class="nav-text">更新jenv仓库</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、安装jdk"><span class="nav-number">3.</span> <span class="nav-text">三、安装jdk</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#查看所有jdk版本"><span class="nav-number">3.0.0.0.1.</span> <span class="nav-text">查看所有jdk版本</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#选择jdk-1-8-0-91版本进行安装"><span class="nav-number">3.0.0.0.2.</span> <span class="nav-text">选择jdk 1.8.0_91版本进行安装</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、安装maven"><span class="nav-number">4.</span> <span class="nav-text">四、安装maven</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#查看所有maven版本"><span class="nav-number">4.0.0.0.1.</span> <span class="nav-text">查看所有maven版本</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#选择maven-3-3-3版本进行安装"><span class="nav-number">4.0.0.0.2.</span> <span class="nav-text">选择maven 3.3.3版本进行安装</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、安装idea"><span class="nav-number">5.</span> <span class="nav-text">五、安装idea</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#下载idea"><span class="nav-number">5.0.0.0.1.</span> <span class="nav-text">下载idea</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#进入压缩包所在目录-解压idea目录"><span class="nav-number">5.0.0.0.2.</span> <span class="nav-text">进入压缩包所在目录,解压idea目录</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#建立软链接-本文idea目录-home-winstar-ideaIU-2017-1-2-bin-idea-实际根据自己的idea目录"><span class="nav-number">5.0.0.0.3.</span> <span class="nav-text">建立软链接,本文idea目录(/home/winstar/ideaIU-2017.1.2/bin/idea),实际根据自己的idea目录</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#启动idea"><span class="nav-number">5.0.0.0.4.</span> <span class="nav-text">启动idea</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
