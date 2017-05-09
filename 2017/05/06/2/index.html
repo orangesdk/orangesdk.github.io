@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="本文以ubuntu 14为例,介绍vue js基本开发环境多安装,步骤如下: 安装内容：  安装node       修改npm仓库地址  安装webpack      安装vuejs        安装vuejs命令行工具     一、安装node12345$ wget https://nodejs.org/dist/v6.10.3/node-v6.10.3-linux-x64.tar.xz$">
+<meta name="description" content="本文以ubuntu 14为例,介绍vue js基本开发环境多安装,步骤如下: 安装内容：  安装node       修改npm仓库地址  安装webpack      安装vuejs        安装vuejs命令行工具     一、安装node123456$ wget https://nodejs.org/dist/v6.10.3/node-v6.10.3-linux-x64.tar.xz$">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux 开发环境安装(二)">
 <meta property="og:url" content="https://orangesdk.github.io/2017/05/06/2/index.html">
 <meta property="og:site_name" content="程序员的江湖">
-<meta property="og:description" content="本文以ubuntu 14为例,介绍vue js基本开发环境多安装,步骤如下: 安装内容：  安装node       修改npm仓库地址  安装webpack      安装vuejs        安装vuejs命令行工具     一、安装node12345$ wget https://nodejs.org/dist/v6.10.3/node-v6.10.3-linux-x64.tar.xz$">
-<meta property="og:updated_time" content="2017-05-09T02:28:29.034Z">
+<meta property="og:description" content="本文以ubuntu 14为例,介绍vue js基本开发环境多安装,步骤如下: 安装内容：  安装node       修改npm仓库地址  安装webpack      安装vuejs        安装vuejs命令行工具     一、安装node123456$ wget https://nodejs.org/dist/v6.10.3/node-v6.10.3-linux-x64.tar.xz$">
+<meta property="og:updated_time" content="2017-05-09T03:55:50.018Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux 开发环境安装(二)">
-<meta name="twitter:description" content="本文以ubuntu 14为例,介绍vue js基本开发环境多安装,步骤如下: 安装内容：  安装node       修改npm仓库地址  安装webpack      安装vuejs        安装vuejs命令行工具     一、安装node12345$ wget https://nodejs.org/dist/v6.10.3/node-v6.10.3-linux-x64.tar.xz$">
+<meta name="twitter:description" content="本文以ubuntu 14为例,介绍vue js基本开发环境多安装,步骤如下: 安装内容：  安装node       修改npm仓库地址  安装webpack      安装vuejs        安装vuejs命令行工具     一、安装node123456$ wget https://nodejs.org/dist/v6.10.3/node-v6.10.3-linux-x64.tar.xz$">
 
 
 
@@ -354,7 +354,7 @@
 <li>安装<a href="http://maven.apache.org/" target="_blank" rel="external">vuejs</a>       </li>
 <li>安装vuejs命令行工具   </li>
 </ol>
-<h2 id="一、安装node"><a href="#一、安装node" class="headerlink" title="一、安装node"></a>一、安装node</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ wget https://nodejs.org/dist/v6.10.3/node-v6.10.3-linux-x64.tar.xz</div><div class="line">$ tar xvJf node-v6.10.3-linux-x64.tar.xz</div><div class="line">$ <span class="built_in">cd</span> node-v6.10.3-linux-x64</div><div class="line">$ sudo ln <span class="_">-s</span>  /home/winstar/node-v6.10.3-linux-x64/bin/node  /usr/<span class="built_in">local</span>/bin/node</div><div class="line">$ node -v</div></pre></td></tr></table></figure>
+<h2 id="一、安装node"><a href="#一、安装node" class="headerlink" title="一、安装node"></a>一、安装node</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ wget https://nodejs.org/dist/v6.10.3/node-v6.10.3-linux-x64.tar.xz</div><div class="line">$ tar xvJf node-v6.10.3-linux-x64.tar.xz</div><div class="line">$ <span class="built_in">cd</span> node-v6.10.3-linux-x64</div><div class="line">$ sudo ln <span class="_">-s</span>  /home/winstar/node-v6.10.3-linux-x64/bin/node  /usr/<span class="built_in">local</span>/bin/node</div><div class="line">$ sudo ln <span class="_">-s</span>  /home/winstar/node-v6.10.3-linux-x64/bin/npm  /usr/<span class="built_in">local</span>/bin/npm</div><div class="line">$ node -v</div></pre></td></tr></table></figure>
 <h2 id="二、修改npm仓库地址"><a href="#二、修改npm仓库地址" class="headerlink" title="二、修改npm仓库地址"></a>二、修改npm仓库地址</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ npm -v</div><div class="line">$ npm config <span class="built_in">set</span> registry <span class="string">"https://registry.npm.taobao.org"</span></div><div class="line">$ npm config list</div></pre></td></tr></table></figure>
 <h2 id="三、安装webpack"><a href="#三、安装webpack" class="headerlink" title="三、安装webpack"></a>三、安装webpack</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ npm install webpack -g</div><div class="line">$ sudo ln <span class="_">-s</span>  /home/winstar/node-v6.10.3-linux-x64/bin/webpack  /usr/<span class="built_in">local</span>/bin/webpack</div><div class="line">$ webpack -v</div></pre></td></tr></table></figure>
 <h2 id="四、安装vuejs"><a href="#四、安装vuejs" class="headerlink" title="四、安装vuejs"></a>四、安装vuejs</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ npm install vue -g</div><div class="line">$ sudo ln <span class="_">-s</span>  /home/winstar/node-v6.10.3-linux-x64/bin/vue  /usr/<span class="built_in">local</span>/bin/vue</div><div class="line">$ vue -V</div></pre></td></tr></table></figure>
