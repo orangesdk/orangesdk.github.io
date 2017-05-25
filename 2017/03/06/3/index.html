@@ -97,7 +97,7 @@
 <meta property="og:url" content="https://orangesdk.github.io/2017/03/06/3/index.html">
 <meta property="og:site_name" content="程序员的江湖">
 <meta property="og:description" content="本文以ubuntu 14为例,介绍golang基本开发环境的安装步骤如下: 安装内容：  下载golang二进制包   安装golang  配置PATH环境      检查go版本        一、下载golang二进制包1$ wget http://www.golangtc.com/static/go/1.8/go1.8.linux-amd64.tar.gz 二、安装golang1$ sudo">
-<meta property="og:updated_time" content="2017-05-25T03:08:29.582Z">
+<meta property="og:updated_time" content="2017-05-25T09:55:03.226Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux 开发环境安装(三)">
 <meta name="twitter:description" content="本文以ubuntu 14为例,介绍golang基本开发环境的安装步骤如下: 安装内容：  下载golang二进制包   安装golang  配置PATH环境      检查go版本        一、下载golang二进制包1$ wget http://www.golangtc.com/static/go/1.8/go1.8.linux-amd64.tar.gz 二、安装golang1$ sudo">
@@ -378,7 +378,7 @@
 <h2 id="一、下载golang二进制包"><a href="#一、下载golang二进制包" class="headerlink" title="一、下载golang二进制包"></a>一、下载golang二进制包</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ wget http://www.golangtc.com/static/go/1.8/go1.8.linux-amd64.tar.gz</div></pre></td></tr></table></figure>
 <h2 id="二、安装golang"><a href="#二、安装golang" class="headerlink" title="二、安装golang"></a>二、安装golang</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo tar -xzf go1.8.linux-amd64.tar.gz -C /usr/<span class="built_in">local</span></div></pre></td></tr></table></figure>
 <h2 id="三、配置PATH环境"><a href="#三、配置PATH环境" class="headerlink" title="三、配置PATH环境"></a>三、配置PATH环境</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo vi /etc/profile</div></pre></td></tr></table></figure>
-<p>###修改内容:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">export</span> GOROOT=/usr/<span class="built_in">local</span>/go</div><div class="line">$ <span class="built_in">export</span> GOBIN=/usr/<span class="built_in">local</span>/go/bin</div><div class="line">$ <span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$GOBIN</span></div></pre></td></tr></table></figure></p>
+<p>###修改内容:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">export</span> GOROOT=/usr/<span class="built_in">local</span>/go</div><div class="line">$ <span class="built_in">export</span> GOBIN=/usr/<span class="built_in">local</span>/go/bin</div><div class="line">$ <span class="built_in">export</span> GOPATH=/home/winstar/go</div><div class="line">$ <span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$GOBIN</span></div></pre></td></tr></table></figure></p>
 <h2 id="四、检查go版本"><a href="#四、检查go版本" class="headerlink" title="四、检查go版本"></a>四、检查go版本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ go version</div></pre></td></tr></table></figure>
 
       
@@ -508,7 +508,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -519,7 +519,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -530,7 +530,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

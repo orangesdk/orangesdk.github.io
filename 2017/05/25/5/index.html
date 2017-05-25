@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="java,微服务," />
+  <meta name="keywords" content="golang,rest api," />
 
 
 
@@ -90,19 +90,17 @@
 
 
 
-<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2016年离开杭州,回到西安来到一家创业公司,从公司只有三两杆枪到开发团队的组建磨合,从内外网数据的同步到微服务的应用,现在所有的服务基本全部切到微服务架构,架构中间的实施之路可以算是艰辛,值得让人欣慰的是几个虚拟机集群节点支撑了2w/s的瞬时并发,还未到达极限,未来的路还很长,">
-<meta name="keywords" content="java,微服务">
+<meta name="description" content="本文以ubuntu 14为例,介绍beego快速实现restful api步骤如下: 安装内容：  安装golang mysql依赖  安装beego依赖       连接数据库生成源代码      生成swagger ui api文档,并运行      浏览器访问api文档   一、安装golang mysql依赖1$ go get github.com/go-sql-driver/mysql">
+<meta name="keywords" content="golang,rest api">
 <meta property="og:type" content="article">
-<meta property="og:title" content="微服务实践感受">
-<meta property="og:url" content="https://orangesdk.github.io/2017/03/10/4/index.html">
+<meta property="og:title" content="beego快速实现restful api">
+<meta property="og:url" content="https://orangesdk.github.io/2017/05/25/5/index.html">
 <meta property="og:site_name" content="程序员的江湖">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2016年离开杭州,回到西安来到一家创业公司,从公司只有三两杆枪到开发团队的组建磨合,从内外网数据的同步到微服务的应用,现在所有的服务基本全部切到微服务架构,架构中间的实施之路可以算是艰辛,值得让人欣慰的是几个虚拟机集群节点支撑了2w/s的瞬时并发,还未到达极限,未来的路还很长,">
-<meta property="og:image" content="https://orangesdk.github.io/images/bf.png">
-<meta property="og:updated_time" content="2017-05-24T07:06:15.872Z">
+<meta property="og:description" content="本文以ubuntu 14为例,介绍beego快速实现restful api步骤如下: 安装内容：  安装golang mysql依赖  安装beego依赖       连接数据库生成源代码      生成swagger ui api文档,并运行      浏览器访问api文档   一、安装golang mysql依赖1$ go get github.com/go-sql-driver/mysql">
+<meta property="og:updated_time" content="2017-05-25T10:07:31.950Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="微服务实践感受">
-<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2016年离开杭州,回到西安来到一家创业公司,从公司只有三两杆枪到开发团队的组建磨合,从内外网数据的同步到微服务的应用,现在所有的服务基本全部切到微服务架构,架构中间的实施之路可以算是艰辛,值得让人欣慰的是几个虚拟机集群节点支撑了2w/s的瞬时并发,还未到达极限,未来的路还很长,">
-<meta name="twitter:image" content="https://orangesdk.github.io/images/bf.png">
+<meta name="twitter:title" content="beego快速实现restful api">
+<meta name="twitter:description" content="本文以ubuntu 14为例,介绍beego快速实现restful api步骤如下: 安装内容：  安装golang mysql依赖  安装beego依赖       连接数据库生成源代码      生成swagger ui api文档,并运行      浏览器访问api文档   一、安装golang mysql依赖1$ go get github.com/go-sql-driver/mysql">
 
 
 
@@ -130,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="https://orangesdk.github.io/2017/03/10/4/"/>
+  <link rel="canonical" href="https://orangesdk.github.io/2017/05/25/5/"/>
 
 
 
 
 
-  <title>微服务实践感受 | 程序员的江湖</title>
+  <title>beego快速实现restful api | 程序员的江湖</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -283,7 +281,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://orangesdk.github.io/2017/03/10/4/">
+    <link itemprop="mainEntityOfPage" href="https://orangesdk.github.io/2017/05/25/5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="残剑">
@@ -300,7 +298,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">微服务实践感受</h1>
+          <h1 class="post-title" itemprop="name headline">beego快速实现restful api</h1>
         
 
         <div class="post-meta">
@@ -312,8 +310,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-10T17:29:57+08:00">
-                2017-03-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-25T17:55:57+08:00">
+                2017-05-25
               </time>
             
 
@@ -335,8 +333,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/微服务/" itemprop="url" rel="index">
-                    <span itemprop="name">微服务</span>
+                  <a href="/categories/golang/" itemprop="url" rel="index">
+                    <span itemprop="name">golang</span>
                   </a>
                 </span>
 
@@ -369,8 +367,20 @@
       
 
       
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2016年离开杭州,回到西安来到一家创业公司,从公司只有三两杆枪到开发团队的组建磨合,从内外网数据的同步到微服务的应用,现在所有的服务基本全部切到微服务架构,架构中间的实施之路可以算是艰辛,值得让人欣慰的是几个虚拟机集群节点支撑了2w/s的瞬时并发,还未到达极限,未来的路还很长,继续努力吧.</p>
-<p><img src="/images/bf.png" alt="瞬时流量图"></p>
+        <p>本文以ubuntu 14为例,介绍beego快速实现restful api步骤如下:</p>
+<p><strong>安装内容：</strong></p>
+<ol>
+<li>安装golang mysql依赖 </li>
+<li>安装<a href="https://beego.me/" target="_blank" rel="external">beego依赖</a>      </li>
+<li>连接数据库生成源代码     </li>
+<li>生成swagger ui api文档,并运行     </li>
+<li>浏览器访问api文档 </li>
+</ol>
+<h2 id="一、安装golang-mysql依赖"><a href="#一、安装golang-mysql依赖" class="headerlink" title="一、安装golang mysql依赖"></a>一、安装golang mysql依赖</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ go get github.com/go-sql-driver/mysql</div></pre></td></tr></table></figure>
+<h2 id="二、安装beego依赖-编译并建立软链接"><a href="#二、安装beego依赖-编译并建立软链接" class="headerlink" title="二、安装beego依赖,编译并建立软链接"></a>二、安装beego依赖,编译并建立软链接</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ go get github.com/astaxie/beego</div><div class="line">$ <span class="built_in">cd</span> <span class="variable">$GOPATH</span>/github.com/astaxie/beego</div><div class="line">$ go install</div><div class="line">$ sudo ln <span class="_">-s</span>  /home/winstar/go/bin/bee /usr/<span class="built_in">local</span>/bin/bee</div></pre></td></tr></table></figure>
+<h2 id="三、连接数据库生成rest-api源代码-具体数据库配置-自行修改"><a href="#三、连接数据库生成rest-api源代码-具体数据库配置-自行修改" class="headerlink" title="三、连接数据库生成rest api源代码(具体数据库配置,自行修改)"></a>三、连接数据库生成rest api源代码(具体数据库配置,自行修改)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bee api <span class="built_in">test</span>2 -conn=<span class="string">"root:123456@tcp(192.168.118.8:23306)/test"</span></div></pre></td></tr></table></figure>
+<h2 id="四、生成swagger-ui-api文档-并运行"><a href="#四、生成swagger-ui-api文档-并运行" class="headerlink" title="四、生成swagger ui api文档,并运行"></a>四、生成swagger ui api文档,并运行</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bee run -gendoc=<span class="literal">true</span> -downdoc=<span class="literal">true</span></div></pre></td></tr></table></figure>
+<h2 id="五、浏览器访问api文档"><a href="#五、浏览器访问api文档" class="headerlink" title="五、浏览器访问api文档"></a>五、浏览器访问api文档</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ http://localhost:8080/swagger/</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -400,9 +410,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java/" rel="tag"># java</a>
+            <a href="/tags/golang/" rel="tag"># golang</a>
           
-            <a href="/tags/微服务/" rel="tag"># 微服务</a>
+            <a href="/tags/rest-api/" rel="tag"># rest api</a>
           
         </div>
       
@@ -415,18 +425,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/25/5/" rel="next" title="beego快速实现restful api">
-                <i class="fa fa-chevron-left"></i> beego快速实现restful api
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/06/3/" rel="prev" title="linux 开发环境安装(三)">
-                linux 开发环境安装(三) <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/10/4/" rel="prev" title="微服务实践感受">
+                微服务实践感受 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -474,8 +480,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -537,6 +552,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、安装golang-mysql依赖"><span class="nav-number">1.</span> <span class="nav-text">一、安装golang mysql依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、安装beego依赖-编译并建立软链接"><span class="nav-number">2.</span> <span class="nav-text">二、安装beego依赖,编译并建立软链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、连接数据库生成rest-api源代码-具体数据库配置-自行修改"><span class="nav-number">3.</span> <span class="nav-text">三、连接数据库生成rest api源代码(具体数据库配置,自行修改)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、生成swagger-ui-api文档-并运行"><span class="nav-number">4.</span> <span class="nav-text">四、生成swagger ui api文档,并运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、浏览器访问api文档"><span class="nav-number">5.</span> <span class="nav-text">五、浏览器访问api文档</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
