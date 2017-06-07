@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="linux,node,vue," />
+  <meta name="keywords" content="jvm," />
 
 
 
@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="本文以ubuntu 14为例,介绍vue js基本开发环境的安装步骤如下: 安装内容：  安装node       修改npm仓库地址  安装webpack      安装vuejs        安装vuejs命令行工具     一、安装node123456$ wget https://nodejs.org/dist/v6.10.3/node-v6.10.3-linux-x64.tar.xz$">
-<meta name="keywords" content="linux,node,vue">
+<meta name="description" content="本文以ubuntu 14环境jdk8为例,介绍jvm配置参数: 配置参数：  开启GC日志:-XX:+PrintGC或-verbose:gc 开启GC详细日志:-XX:+PrintGCDetails  一、开启GC日志1.1 执行-XX:+PrintGC或-verbose:gc命令参数1$ java -XX:+PrintGC -jar *.jar 或1$ java -verbose:gc -jar">
+<meta name="keywords" content="jvm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux 开发环境安装(二)">
-<meta property="og:url" content="https://orangesdk.github.io/2017/01/06/2/index.html">
+<meta property="og:title" content="jvm 配置参数">
+<meta property="og:url" content="https://orangesdk.github.io/2017/06/07/6/index.html">
 <meta property="og:site_name" content="程序员的江湖">
-<meta property="og:description" content="本文以ubuntu 14为例,介绍vue js基本开发环境的安装步骤如下: 安装内容：  安装node       修改npm仓库地址  安装webpack      安装vuejs        安装vuejs命令行工具     一、安装node123456$ wget https://nodejs.org/dist/v6.10.3/node-v6.10.3-linux-x64.tar.xz$">
-<meta property="og:updated_time" content="2017-05-25T03:08:29.390Z">
+<meta property="og:description" content="本文以ubuntu 14环境jdk8为例,介绍jvm配置参数: 配置参数：  开启GC日志:-XX:+PrintGC或-verbose:gc 开启GC详细日志:-XX:+PrintGCDetails  一、开启GC日志1.1 执行-XX:+PrintGC或-verbose:gc命令参数1$ java -XX:+PrintGC -jar *.jar 或1$ java -verbose:gc -jar">
+<meta property="og:updated_time" content="2017-06-07T10:41:05.555Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux 开发环境安装(二)">
-<meta name="twitter:description" content="本文以ubuntu 14为例,介绍vue js基本开发环境的安装步骤如下: 安装内容：  安装node       修改npm仓库地址  安装webpack      安装vuejs        安装vuejs命令行工具     一、安装node123456$ wget https://nodejs.org/dist/v6.10.3/node-v6.10.3-linux-x64.tar.xz$">
+<meta name="twitter:title" content="jvm 配置参数">
+<meta name="twitter:description" content="本文以ubuntu 14环境jdk8为例,介绍jvm配置参数: 配置参数：  开启GC日志:-XX:+PrintGC或-verbose:gc 开启GC详细日志:-XX:+PrintGCDetails  一、开启GC日志1.1 执行-XX:+PrintGC或-verbose:gc命令参数1$ java -XX:+PrintGC -jar *.jar 或1$ java -verbose:gc -jar">
 
 
 
@@ -128,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="https://orangesdk.github.io/2017/01/06/2/"/>
+  <link rel="canonical" href="https://orangesdk.github.io/2017/06/07/6/"/>
 
 
 
 
 
-  <title>linux 开发环境安装(二) | 程序员的江湖</title>
+  <title>jvm 配置参数 | 程序员的江湖</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -281,7 +281,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://orangesdk.github.io/2017/01/06/2/">
+    <link itemprop="mainEntityOfPage" href="https://orangesdk.github.io/2017/06/07/6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="残剑">
@@ -298,7 +298,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">linux 开发环境安装(二)</h1>
+          <h1 class="post-title" itemprop="name headline">jvm 配置参数</h1>
         
 
         <div class="post-meta">
@@ -310,8 +310,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-06T14:29:57+08:00">
-                2017-01-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-07T16:55:57+08:00">
+                2017-06-07
               </time>
             
 
@@ -333,8 +333,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index">
-                    <span itemprop="name">linux</span>
+                  <a href="/categories/jvm/" itemprop="url" rel="index">
+                    <span itemprop="name">jvm</span>
                   </a>
                 </span>
 
@@ -367,20 +367,22 @@
       
 
       
-        <p>本文以ubuntu 14为例,介绍vue js基本开发环境的安装步骤如下:</p>
-<p><strong>安装内容：</strong></p>
+        <p>本文以ubuntu 14环境jdk8为例,介绍jvm配置参数:</p>
+<p><strong>配置参数：</strong></p>
 <ol>
-<li>安装<a href="https://nodejs.org/" target="_blank" rel="external">node</a>      </li>
-<li>修改npm仓库地址 </li>
-<li>安装<a href="http://webpack.github.io/" target="_blank" rel="external">webpack</a>     </li>
-<li>安装<a href="https://cn.vuejs.org/" target="_blank" rel="external">vuejs</a>       </li>
-<li>安装vuejs命令行工具   </li>
+<li>开启GC日志:-XX:+PrintGC或-verbose:gc</li>
+<li>开启GC详细日志:-XX:+PrintGCDetails</li>
 </ol>
-<h2 id="一、安装node"><a href="#一、安装node" class="headerlink" title="一、安装node"></a>一、安装node</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ wget https://nodejs.org/dist/v6.10.3/node-v6.10.3-linux-x64.tar.xz</div><div class="line">$ tar xvJf node-v6.10.3-linux-x64.tar.xz</div><div class="line">$ <span class="built_in">cd</span> node-v6.10.3-linux-x64</div><div class="line">$ sudo ln <span class="_">-s</span>  /home/winstar/node-v6.10.3-linux-x64/bin/node  /usr/<span class="built_in">local</span>/bin/node</div><div class="line">$ sudo ln <span class="_">-s</span>  /home/winstar/node-v6.10.3-linux-x64/bin/npm  /usr/<span class="built_in">local</span>/bin/npm</div><div class="line">$ node -v</div></pre></td></tr></table></figure>
-<h2 id="二、修改npm仓库地址"><a href="#二、修改npm仓库地址" class="headerlink" title="二、修改npm仓库地址"></a>二、修改npm仓库地址</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ npm -v</div><div class="line">$ npm config <span class="built_in">set</span> registry <span class="string">"https://registry.npm.taobao.org"</span></div><div class="line">$ npm config list</div></pre></td></tr></table></figure>
-<h2 id="三、安装webpack"><a href="#三、安装webpack" class="headerlink" title="三、安装webpack"></a>三、安装webpack</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ npm install webpack -g</div><div class="line">$ sudo ln <span class="_">-s</span>  /home/winstar/node-v6.10.3-linux-x64/bin/webpack  /usr/<span class="built_in">local</span>/bin/webpack</div><div class="line">$ webpack -v</div></pre></td></tr></table></figure>
-<h2 id="四、安装vuejs"><a href="#四、安装vuejs" class="headerlink" title="四、安装vuejs"></a>四、安装vuejs</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ npm install vue -g</div><div class="line">$ sudo ln <span class="_">-s</span>  /home/winstar/node-v6.10.3-linux-x64/bin/vue  /usr/<span class="built_in">local</span>/bin/vue</div><div class="line">$ vue -V</div></pre></td></tr></table></figure>
-<h2 id="五、安装vuejs命令行工具"><a href="#五、安装vuejs命令行工具" class="headerlink" title="五、安装vuejs命令行工具"></a>五、安装vuejs命令行工具</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ npm install vue-cli -g</div><div class="line">$ sudo ln <span class="_">-s</span>  /home/winstar/node-v6.10.3-linux-x64/bin/vue-build  /usr/<span class="built_in">local</span>/bin/vue-build</div><div class="line">$ sudo ln <span class="_">-s</span>  /home/winstar/node-v6.10.3-linux-x64/bin/vue-init  /usr/<span class="built_in">local</span>/bin/vue-init</div><div class="line">$ sudo ln <span class="_">-s</span>  /home/winstar/node-v6.10.3-linux-x64/bin/vue-list  /usr/<span class="built_in">local</span>/bin/vue-list</div></pre></td></tr></table></figure>
+<h2 id="一、开启GC日志"><a href="#一、开启GC日志" class="headerlink" title="一、开启GC日志"></a>一、开启GC日志</h2><h3 id="1-1-执行-XX-PrintGC或-verbose-gc命令参数"><a href="#1-1-执行-XX-PrintGC或-verbose-gc命令参数" class="headerlink" title="1.1 执行-XX:+PrintGC或-verbose:gc命令参数"></a>1.1 执行-XX:+PrintGC或-verbose:gc命令参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ java -XX:+PrintGC -jar *.jar</div></pre></td></tr></table></figure>
+<p>或<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ java -verbose:gc -jar *.jar</div></pre></td></tr></table></figure></p>
+<h3 id="1-2-执行结果举例"><a href="#1-2-执行结果举例" class="headerlink" title="1.2 执行结果举例"></a>1.2 执行结果举例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ [GC (Allocation Failure)  36080K-&gt;3830K(121856K), 0.0050313 secs]</div></pre></td></tr></table></figure>
+<p>解释:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ [GC (Allocation Failure)  GC前jvm堆内存占用-&gt;GC后jvm堆内存占用(jvm堆总内存大小), GC耗时]</div></pre></td></tr></table></figure></p>
+<h2 id="二、开启GC详细日志"><a href="#二、开启GC详细日志" class="headerlink" title="二、开启GC详细日志"></a>二、开启GC详细日志</h2><h3 id="2-1-执行-XX-PrintGCDetails命令参数"><a href="#2-1-执行-XX-PrintGCDetails命令参数" class="headerlink" title="2.1 执行-XX:+PrintGCDetails命令参数"></a>2.1 执行-XX:+PrintGCDetails命令参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ java -XX:+PrintGCDetails -jar *.jar</div></pre></td></tr></table></figure>
+<h3 id="2-2-执行结果举例"><a href="#2-2-执行结果举例" class="headerlink" title="2.2 执行结果举例"></a>2.2 执行结果举例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ [GC (Allocation Failure) [PSYoungGen: 31744K-&gt;2447K(36864K)] 31744K-&gt;2455K(121856K), 0.0035618 secs] [Times: user=0.00 sys=0.00, real=0.00 secs]</div></pre></td></tr></table></figure>
+<p>解释:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ [GC (Allocation Failure) [新生代GC类型: GC前内存占用-&gt;GC后内存占用(新生代总内存大小)] 新生代GC前jvm堆内存占用-&gt;新生代GC后jvm堆内存占用(jvm堆总内存大小), 新生代GC耗时] [耗时: 新生代GC用户耗时 新生代GC系统耗时, 新生代GC实际耗时]</div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ Heap</div><div class="line">   PSYoungGen      total 437760K, used 242373K [0x00000000d6d80000, 0x00000000f3380000, 0x0000000100000000)</div><div class="line">    eden space 422400K, 53% used [0x00000000d6d80000,0x00000000e4b6f490,0x00000000f0a00000)</div><div class="line">    from space 15360K, 98% used [0x00000000f2480000,0x00000000f3342028,0x00000000f3380000)</div><div class="line">    to   space 17408K, 0% used [0x00000000f1180000,0x00000000f1180000,0x00000000f2280000)</div><div class="line">   ParOldGen       total 91648K, used 22949K [0x0000000084800000, 0x000000008a180000, 0x00000000d6d80000)</div><div class="line">    object space 91648K, 25% used [0x0000000084800000,0x0000000085e696b0,0x000000008a180000)</div><div class="line">   Metaspace       used 49792K, capacity 50210K, committed 50688K, reserved 1093632K</div><div class="line">    class space    used 6267K, capacity 6397K, committed 6400K, reserved 1048576K</div></pre></td></tr></table></figure>
+<p>解释:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ 堆内存</div><div class="line">   新生代内存      总内存空间大小, 已经使用大小 [0x00000000d6d80000, 0x00000000f3380000, 0x0000000100000000)</div><div class="line">    伊甸园 422400K, 使用率 [0x00000000d6d80000,0x00000000e4b6f490,0x00000000f0a00000)</div><div class="line">    from space 15360K, 使用率 [0x00000000f2480000,0x00000000f3342028,0x00000000f3380000)</div><div class="line">    to   space 17408K, 使用率[0x00000000f1180000,0x00000000f1180000,0x00000000f2280000)</div><div class="line">   老年代内存       总内存空间大小, 已经使用大小 [0x0000000084800000, 0x000000008a180000, 0x00000000d6d80000)</div><div class="line">    object space 总内存空间大小, 使用率 [0x0000000084800000,0x0000000085e696b0,0x000000008a180000)</div><div class="line">   元空间       已经使用大小, capacity 50210K, committed 50688K, reserved 1093632K</div><div class="line">    class space    已经使用大小, capacity 6397K, committed 6400K, reserved 1048576K</div></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -409,11 +411,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"># linux</a>
-          
-            <a href="/tags/node/" rel="tag"># node</a>
-          
-            <a href="/tags/vue/" rel="tag"># vue</a>
+            <a href="/tags/jvm/" rel="tag"># jvm</a>
           
         </div>
       
@@ -426,18 +424,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/06/3/" rel="next" title="linux 开发环境安装(三)">
-                <i class="fa fa-chevron-left"></i> linux 开发环境安装(三)
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/01/05/1/" rel="prev" title="linux 开发环境安装(一)">
-                linux 开发环境安装(一) <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/25/5/" rel="prev" title="beego快速实现restful api">
+                beego快速实现restful api <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -567,7 +561,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、安装node"><span class="nav-number">1.</span> <span class="nav-text">一、安装node</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、修改npm仓库地址"><span class="nav-number">2.</span> <span class="nav-text">二、修改npm仓库地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、安装webpack"><span class="nav-number">3.</span> <span class="nav-text">三、安装webpack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、安装vuejs"><span class="nav-number">4.</span> <span class="nav-text">四、安装vuejs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、安装vuejs命令行工具"><span class="nav-number">5.</span> <span class="nav-text">五、安装vuejs命令行工具</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、开启GC日志"><span class="nav-number">1.</span> <span class="nav-text">一、开启GC日志</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-执行-XX-PrintGC或-verbose-gc命令参数"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 执行-XX:+PrintGC或-verbose:gc命令参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-执行结果举例"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 执行结果举例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、开启GC详细日志"><span class="nav-number">2.</span> <span class="nav-text">二、开启GC详细日志</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-执行-XX-PrintGCDetails命令参数"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 执行-XX:+PrintGCDetails命令参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-执行结果举例"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 执行结果举例</span></a></li></ol></li></ol></div>
             
 
           </div>
