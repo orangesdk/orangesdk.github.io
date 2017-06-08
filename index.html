@@ -372,16 +372,29 @@
         
           
             <p>本文以ubuntu 14环境jdk8为例,介绍jvm配置参数:</p>
+<p><img src="/images/a1.jpg" alt="堆内存结构图">  </p>
+<p>运行时数据区域,所有类实例和数组的内存均从此处分配.Java 虚拟机启动时创建.对象的堆内存由称为垃圾回收器的自动内存管理系统回收.堆由两部分组成:</p>
+<pre><code>其中eden+fromspace+tospace也叫年轻代(young),old space叫旧生代.
+
+其中还有S0(from space),S1(to space)(在JDK的自带工具输出中会看到),分别指的是Survivor space,存放每次垃圾回收后存活的对象.
+
+Old Generation 主要存放应用程序中生命周期长的存活对象.
+</code></pre><p>垃圾回收主要是对Young Generation块和Old Generation块内存进行回收,YG用来放新产生的对象,经过几次回收还没回收掉的对象往OG中移动,对YG进行垃圾回收又叫做MinorGC,对OG垃圾回收叫MajorGC,两块内存回收互不干涉.</p>
+<p><strong>配置参数：</strong></p>
 <ol>
 <li>指定最大堆和最小堆 </li>
 <li>设置新生代堆内存大小:-Xmn</li>
+<li>设置新生代内存比例: -XX:SurvivorRatio=2</li>
 </ol>
 <h2 id="一、指定最大堆和最小堆"><a href="#一、指定最大堆和最小堆" class="headerlink" title="一、指定最大堆和最小堆"></a>一、指定最大堆和最小堆</h2><h3 id="1-1-执行-Xmx-Xms命令参数-Xmx-最大堆-Xms-初始堆"><a href="#1-1-执行-Xmx-Xms命令参数-Xmx-最大堆-Xms-初始堆" class="headerlink" title="1.1 执行-Xmx -Xms命令参数(-Xmx:最大堆 -Xms:初始堆)"></a>1.1 执行-Xmx -Xms命令参数(-Xmx:最大堆 -Xms:初始堆)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ java  -Xmx20m -Xms5m -jar *.jar</div></pre></td></tr></table></figure>
 <h3 id="1-2-获得系统堆信息"><a href="#1-2-获得系统堆信息" class="headerlink" title="1.2 获得系统堆信息"></a>1.2 获得系统堆信息</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Runtime.getRuntime().maxMemory();<span class="comment">//最大内存</span></div><div class="line">Runtime.getRuntime().freeMemory();<span class="comment">//空闲内存</span></div><div class="line">Runtime.getRuntime().totalMemory();<span class="comment">//当前分配的可用内存</span></div></pre></td></tr></table></figure>
 <h3 id="1-3-常见问题"><a href="#1-3-常见问题" class="headerlink" title="1.3 常见问题"></a>1.3 常见问题</h3><p>Caused by: java.lang.OutOfMemoryError: GC overhead limit exceeded可以通过增大-Xmx解决.</p>
 <h2 id="二、设置新生代堆内存大小"><a href="#二、设置新生代堆内存大小" class="headerlink" title="二、设置新生代堆内存大小"></a>二、设置新生代堆内存大小</h2><h3 id="2-1-执行-Xmn命令参数"><a href="#2-1-执行-Xmn命令参数" class="headerlink" title="2.1 执行-Xmn命令参数"></a>2.1 执行-Xmn命令参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ java  -Xmx20m -Xms5m -Xmn1m -XX:+PrintGCDetails -jar *.jar</div></pre></td></tr></table></figure>
 <h3 id="2-2-执行结果"><a href="#2-2-执行结果" class="headerlink" title="2.2 执行结果"></a>2.2 执行结果</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ Heap</div><div class="line">   PSYoungGen      total 1024K, used 161K [0x00000000ffe80000, 0x0000000100000000, 0x0000000100000000)</div><div class="line">    eden space 512K, 6% used [0x00000000ffe80000,0x00000000ffe88438,0x00000000fff00000)</div><div class="line">    from space 512K, 25% used [0x00000000fff00000,0x00000000fff20000,0x00000000fff80000)</div><div class="line">    to   space 512K, 0% used [0x00000000fff80000,0x00000000fff80000,0x0000000100000000)</div><div class="line">   ParOldGen       total 18944K, used 15219K [0x00000000fec00000, 0x00000000ffe80000, 0x00000000ffe80000)</div><div class="line">    object space 18944K, 80% used [0x00000000fec00000,0x00000000ffadcd60,0x00000000ffe80000)</div><div class="line">   Metaspace       used 37075K, capacity 37366K, committed 37760K, reserved 1081344K</div><div class="line">    class space    used 4841K, capacity 4954K, committed 4992K, reserved 1048576K</div></pre></td></tr></table></figure>
-<p>结果分析:<br>1.新生代指定1M,实例都被分配到老年代</p>
+<p>结果分析:<br>1.新生代指定1M,实例都被分配到老年代<br>2.伊甸园区:512k,from space&amp; to space:512k,新生代=伊甸园区+from space&amp; to space 1M</p>
+<h2 id="三、设置新生代内存比例"><a href="#三、设置新生代内存比例" class="headerlink" title="三、设置新生代内存比例"></a>三、设置新生代内存比例</h2><h3 id="3-1-执行-Xmn命令参数"><a href="#3-1-执行-Xmn命令参数" class="headerlink" title="3.1 执行-Xmn命令参数"></a>3.1 执行-Xmn命令参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ java  -Xmx20m -Xms5m -XX:+PrintGCDetails -XX:SurvivorRatio=4 -jar *.jar</div></pre></td></tr></table></figure>
+<h3 id="3-2-执行结果"><a href="#3-2-执行结果" class="headerlink" title="3.2 执行结果"></a>3.2 执行结果</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ Heap</div><div class="line">   PSYoungGen      total 5632K, used 3197K [0x00000000ff980000, 0x0000000100000000, 0x0000000100000000)</div><div class="line">    eden space 4608K, 47% used [0x00000000ff980000,0x00000000ffba6000,0x00000000ffe00000)</div><div class="line">    from space 1024K, 97% used [0x00000000ffe00000,0x00000000ffef95c8,0x00000000fff00000)</div><div class="line">    to   space 1024K, 0% used [0x00000000fff00000,0x00000000fff00000,0x0000000100000000)</div><div class="line">   ParOldGen       total 13824K, used 13708K [0x00000000fec00000, 0x00000000ff980000, 0x00000000ff980000)</div><div class="line">    object space 13824K, 99% used [0x00000000fec00000,0x00000000ff9630e0,0x00000000ff980000)</div><div class="line">   Metaspace       used 35664K, capacity 35936K, committed 36352K, reserved 1081344K</div><div class="line">    class space    used 4644K, capacity 4729K, committed 4864K, reserved 1048576K</div></pre></td></tr></table></figure>
+<p>结果分析:<br>1.伊甸园区4608K,from space&amp;to space 1024k.<br>2.伊甸园区和from space&amp;to space比例大致为4(-XX:SurvivorRatio=4).</p>
 
           
         
