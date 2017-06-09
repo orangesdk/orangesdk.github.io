@@ -99,7 +99,7 @@
 <meta property="og:description" content="本文以ubuntu 14环境jdk8为例,介绍jvm配置参数:    运行时数据区域,所有类实例和数组的内存均从此处分配.Java 虚拟机启动时创建.对象的堆内存由称为垃圾回收器的自动内存管理系统回收.堆由两部分组成: 其中eden+fromspace+tospace也叫年轻代(young),old space叫旧生代.  其中还有S0(from space),S1(to space)(在JDK的">
 <meta property="og:image" content="https://orangesdk.github.io/images/a1.jpg">
 <meta property="og:image" content="https://orangesdk.github.io/images/memory.jpg">
-<meta property="og:updated_time" content="2017-06-09T06:59:02.158Z">
+<meta property="og:updated_time" content="2017-06-09T07:27:02.421Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jvm 配置参数(二)">
 <meta name="twitter:description" content="本文以ubuntu 14环境jdk8为例,介绍jvm配置参数:    运行时数据区域,所有类实例和数组的内存均从此处分配.Java 虚拟机启动时创建.对象的堆内存由称为垃圾回收器的自动内存管理系统回收.堆由两部分组成: 其中eden+fromspace+tospace也叫年轻代(young),old space叫旧生代.  其中还有S0(from space),S1(to space)(在JDK的">
@@ -388,6 +388,7 @@ Old Generation 主要存放应用程序中生命周期长的存活对象.
 <li>设置出现OutOfMemoryError异常时,执行脚本:-XX:OnOutOfMemoryError</li>
 <li>设置新生代和老年代内存比例:-XX:NewRatio</li>
 <li>官方推荐堆内存设置比例</li>
+<li>栈内存大小分配:-Xss</li>
 </ol>
 <h2 id="一、指定最大堆和最小堆"><a href="#一、指定最大堆和最小堆" class="headerlink" title="一、指定最大堆和最小堆"></a>一、指定最大堆和最小堆</h2><h3 id="1-1-执行-Xmx-Xms命令参数-Xmx-最大堆-Xms-初始堆"><a href="#1-1-执行-Xmx-Xms命令参数-Xmx-最大堆-Xms-初始堆" class="headerlink" title="1.1 执行-Xmx -Xms命令参数(-Xmx:最大堆 -Xms:初始堆)"></a>1.1 执行-Xmx -Xms命令参数(-Xmx:最大堆 -Xms:初始堆)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ java  -Xmx20m -Xms5m -jar *.jar</div></pre></td></tr></table></figure>
 <h3 id="1-2-获得系统堆信息"><a href="#1-2-获得系统堆信息" class="headerlink" title="1.2 获得系统堆信息"></a>1.2 获得系统堆信息</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Runtime.getRuntime().maxMemory();<span class="comment">//最大内存</span></div><div class="line">Runtime.getRuntime().freeMemory();<span class="comment">//空闲内存</span></div><div class="line">Runtime.getRuntime().totalMemory();<span class="comment">//当前分配的可用内存</span></div></pre></td></tr></table></figure>

@@ -389,6 +389,7 @@ Old Generation 主要存放应用程序中生命周期长的存活对象.
 <li>设置出现OutOfMemoryError异常时,执行脚本:-XX:OnOutOfMemoryError</li>
 <li>设置新生代和老年代内存比例:-XX:NewRatio</li>
 <li>官方推荐堆内存设置比例</li>
+<li>栈内存大小分配:-Xss</li>
 </ol>
 <h2 id="一、指定最大堆和最小堆"><a href="#一、指定最大堆和最小堆" class="headerlink" title="一、指定最大堆和最小堆"></a>一、指定最大堆和最小堆</h2><h3 id="1-1-执行-Xmx-Xms命令参数-Xmx-最大堆-Xms-初始堆"><a href="#1-1-执行-Xmx-Xms命令参数-Xmx-最大堆-Xms-初始堆" class="headerlink" title="1.1 执行-Xmx -Xms命令参数(-Xmx:最大堆 -Xms:初始堆)"></a>1.1 执行-Xmx -Xms命令参数(-Xmx:最大堆 -Xms:初始堆)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ java  -Xmx20m -Xms5m -jar *.jar</div></pre></td></tr></table></figure>
 <h3 id="1-2-获得系统堆信息"><a href="#1-2-获得系统堆信息" class="headerlink" title="1.2 获得系统堆信息"></a>1.2 获得系统堆信息</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Runtime.getRuntime().maxMemory();<span class="comment">//最大内存</span></div><div class="line">Runtime.getRuntime().freeMemory();<span class="comment">//空闲内存</span></div><div class="line">Runtime.getRuntime().totalMemory();<span class="comment">//当前分配的可用内存</span></div></pre></td></tr></table></figure>
@@ -675,7 +676,7 @@ Old Generation 主要存放应用程序中生命周期长的存活对象.
         
           
             <p>本文以ubuntu 14环境jdk8为例,介绍jvm配置参数:</p>
-<p>堆被划分为新生代和旧生代,新生代又被进一步划分为Eden和Survivor区,最后Survivor由FromSpace和ToSpace组成,结构图如下所示：</p>
+<p>堆被划分为新生代和旧生代,新生代又被进一步划分为Eden和Survivor区,最后Survivor由FromSpace和ToSpace组成,结构图如下所示(注意jdk8以及移除了永久代)：</p>
 <p><img src="/images/jvm.gif" alt="堆内存结构图">  </p>
 <p><strong>配置参数：</strong></p>
 <ol>

@@ -90,18 +90,18 @@
 
 
 
-<meta name="description" content="本文以ubuntu 14环境jdk8为例,介绍jvm配置参数: 堆被划分为新生代和旧生代,新生代又被进一步划分为Eden和Survivor区,最后Survivor由FromSpace和ToSpace组成,结构图如下所示：    配置参数：  开启GC日志: -XX:+PrintGC或-verbose:gc 开启GC详细日志: -XX:+PrintGCDetails 开启GC详细日志并记录时间: -">
+<meta name="description" content="本文以ubuntu 14环境jdk8为例,介绍jvm配置参数: 堆被划分为新生代和旧生代,新生代又被进一步划分为Eden和Survivor区,最后Survivor由FromSpace和ToSpace组成,结构图如下所示(注意jdk8以及移除了永久代)：    配置参数：  开启GC日志: -XX:+PrintGC或-verbose:gc 开启GC详细日志: -XX:+PrintGCDetails">
 <meta name="keywords" content="jvm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jvm 配置参数(一)">
 <meta property="og:url" content="https://orangesdk.github.io/2017/06/07/6/index.html">
 <meta property="og:site_name" content="程序员的江湖">
-<meta property="og:description" content="本文以ubuntu 14环境jdk8为例,介绍jvm配置参数: 堆被划分为新生代和旧生代,新生代又被进一步划分为Eden和Survivor区,最后Survivor由FromSpace和ToSpace组成,结构图如下所示：    配置参数：  开启GC日志: -XX:+PrintGC或-verbose:gc 开启GC详细日志: -XX:+PrintGCDetails 开启GC详细日志并记录时间: -">
+<meta property="og:description" content="本文以ubuntu 14环境jdk8为例,介绍jvm配置参数: 堆被划分为新生代和旧生代,新生代又被进一步划分为Eden和Survivor区,最后Survivor由FromSpace和ToSpace组成,结构图如下所示(注意jdk8以及移除了永久代)：    配置参数：  开启GC日志: -XX:+PrintGC或-verbose:gc 开启GC详细日志: -XX:+PrintGCDetails">
 <meta property="og:image" content="https://orangesdk.github.io/images/jvm.gif">
-<meta property="og:updated_time" content="2017-06-09T05:21:38.670Z">
+<meta property="og:updated_time" content="2017-06-09T07:49:22.623Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jvm 配置参数(一)">
-<meta name="twitter:description" content="本文以ubuntu 14环境jdk8为例,介绍jvm配置参数: 堆被划分为新生代和旧生代,新生代又被进一步划分为Eden和Survivor区,最后Survivor由FromSpace和ToSpace组成,结构图如下所示：    配置参数：  开启GC日志: -XX:+PrintGC或-verbose:gc 开启GC详细日志: -XX:+PrintGCDetails 开启GC详细日志并记录时间: -">
+<meta name="twitter:description" content="本文以ubuntu 14环境jdk8为例,介绍jvm配置参数: 堆被划分为新生代和旧生代,新生代又被进一步划分为Eden和Survivor区,最后Survivor由FromSpace和ToSpace组成,结构图如下所示(注意jdk8以及移除了永久代)：    配置参数：  开启GC日志: -XX:+PrintGC或-verbose:gc 开启GC详细日志: -XX:+PrintGCDetails">
 <meta name="twitter:image" content="https://orangesdk.github.io/images/jvm.gif">
 
 
@@ -370,7 +370,7 @@
 
       
         <p>本文以ubuntu 14环境jdk8为例,介绍jvm配置参数:</p>
-<p>堆被划分为新生代和旧生代,新生代又被进一步划分为Eden和Survivor区,最后Survivor由FromSpace和ToSpace组成,结构图如下所示：</p>
+<p>堆被划分为新生代和旧生代,新生代又被进一步划分为Eden和Survivor区,最后Survivor由FromSpace和ToSpace组成,结构图如下所示(注意jdk8以及移除了永久代)：</p>
 <p><img src="/images/jvm.gif" alt="堆内存结构图">  </p>
 <p><strong>配置参数：</strong></p>
 <ol>
