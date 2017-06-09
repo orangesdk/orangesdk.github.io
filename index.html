@@ -384,9 +384,10 @@ Old Generation 主要存放应用程序中生命周期长的存活对象.
 <ol>
 <li>指定最大堆和最小堆 </li>
 <li>设置新生代堆内存大小:-Xmn</li>
-<li>设置新生代内存比例: -XX:SurvivorRatio=2</li>
+<li>设置新生代内存比例(eden和两个survivor区比例): -XX:SurvivorRatio</li>
 <li>出现OutOfMemoryError异常时,转存堆信息到文件:-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath</li>
 <li>设置出现OutOfMemoryError异常时,执行脚本:-XX:OnOutOfMemoryError</li>
+<li>设置新生代和老年代内存比例:-XX:NewRatio</li>
 <li>官方推荐堆内存设置比例</li>
 </ol>
 <h2 id="一、指定最大堆和最小堆"><a href="#一、指定最大堆和最小堆" class="headerlink" title="一、指定最大堆和最小堆"></a>一、指定最大堆和最小堆</h2><h3 id="1-1-执行-Xmx-Xms命令参数-Xmx-最大堆-Xms-初始堆"><a href="#1-1-执行-Xmx-Xms命令参数-Xmx-最大堆-Xms-初始堆" class="headerlink" title="1.1 执行-Xmx -Xms命令参数(-Xmx:最大堆 -Xms:初始堆)"></a>1.1 执行-Xmx -Xms命令参数(-Xmx:最大堆 -Xms:初始堆)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ java  -Xmx20m -Xms5m -jar *.jar</div></pre></td></tr></table></figure>
@@ -394,15 +395,152 @@ Old Generation 主要存放应用程序中生命周期长的存活对象.
 <h3 id="1-3-常见问题"><a href="#1-3-常见问题" class="headerlink" title="1.3 常见问题"></a>1.3 常见问题</h3><p>Caused by: java.lang.OutOfMemoryError: GC overhead limit exceeded可以通过增大-Xmx解决.</p>
 <h2 id="二、设置新生代堆内存大小"><a href="#二、设置新生代堆内存大小" class="headerlink" title="二、设置新生代堆内存大小"></a>二、设置新生代堆内存大小</h2><h3 id="2-1-执行-Xmn命令参数"><a href="#2-1-执行-Xmn命令参数" class="headerlink" title="2.1 执行-Xmn命令参数"></a>2.1 执行-Xmn命令参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ java  -Xmx20m -Xms5m -Xmn1m -XX:+PrintGCDetails -jar *.jar</div></pre></td></tr></table></figure>
 <h3 id="2-2-执行结果"><a href="#2-2-执行结果" class="headerlink" title="2.2 执行结果"></a>2.2 执行结果</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ Heap</div><div class="line">   PSYoungGen      total 1024K, used 161K [0x00000000ffe80000, 0x0000000100000000, 0x0000000100000000)</div><div class="line">    eden space 512K, 6% used [0x00000000ffe80000,0x00000000ffe88438,0x00000000fff00000)</div><div class="line">    from space 512K, 25% used [0x00000000fff00000,0x00000000fff20000,0x00000000fff80000)</div><div class="line">    to   space 512K, 0% used [0x00000000fff80000,0x00000000fff80000,0x0000000100000000)</div><div class="line">   ParOldGen       total 18944K, used 15219K [0x00000000fec00000, 0x00000000ffe80000, 0x00000000ffe80000)</div><div class="line">    object space 18944K, 80% used [0x00000000fec00000,0x00000000ffadcd60,0x00000000ffe80000)</div><div class="line">   Metaspace       used 37075K, capacity 37366K, committed 37760K, reserved 1081344K</div><div class="line">    class space    used 4841K, capacity 4954K, committed 4992K, reserved 1048576K</div></pre></td></tr></table></figure>
-<p>结果分析:<br>1.新生代指定1M,由于空间不够,实例都被分配到老年代<br>2.伊甸园区:512k,from space&amp; to space:512k,新生代=伊甸园区+from space&amp; to space=1M</p>
+<p>结果分析:<br>1.新生代(PSYoungGen)指定1M,由于空间不够,实例都被分配到老年代<br>2.伊甸园区(eden space):512k,幸存区(from space&amp; to space):512k,新生代=伊甸园区+幸存区=1M</p>
 <h2 id="三、设置新生代内存比例"><a href="#三、设置新生代内存比例" class="headerlink" title="三、设置新生代内存比例"></a>三、设置新生代内存比例</h2><h3 id="3-1-执行-Xmn命令参数"><a href="#3-1-执行-Xmn命令参数" class="headerlink" title="3.1 执行-Xmn命令参数"></a>3.1 执行-Xmn命令参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ java  -Xmx20m -Xms5m -XX:+PrintGCDetails -XX:SurvivorRatio=4 -jar *.jar</div></pre></td></tr></table></figure>
 <h3 id="3-2-执行结果"><a href="#3-2-执行结果" class="headerlink" title="3.2 执行结果"></a>3.2 执行结果</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ Heap</div><div class="line">   PSYoungGen      total 5632K, used 3197K [0x00000000ff980000, 0x0000000100000000, 0x0000000100000000)</div><div class="line">    eden space 4608K, 47% used [0x00000000ff980000,0x00000000ffba6000,0x00000000ffe00000)</div><div class="line">    from space 1024K, 97% used [0x00000000ffe00000,0x00000000ffef95c8,0x00000000fff00000)</div><div class="line">    to   space 1024K, 0% used [0x00000000fff00000,0x00000000fff00000,0x0000000100000000)</div><div class="line">   ParOldGen       total 13824K, used 13708K [0x00000000fec00000, 0x00000000ff980000, 0x00000000ff980000)</div><div class="line">    object space 13824K, 99% used [0x00000000fec00000,0x00000000ff9630e0,0x00000000ff980000)</div><div class="line">   Metaspace       used 35664K, capacity 35936K, committed 36352K, reserved 1081344K</div><div class="line">    class space    used 4644K, capacity 4729K, committed 4864K, reserved 1048576K</div></pre></td></tr></table></figure>
-<p>结果分析:<br>1.伊甸园区4608K,from space&amp;to space 1024k.<br>2.伊甸园区和from space&amp;to space比例大致为4(-XX:SurvivorRatio=4).</p>
+<p>结果分析:<br>1.伊甸园区(eden space)4608K,幸存区(from space&amp;to space) 1024k.<br>2.伊甸园区和幸存区(from space&amp;to space)比例大致为4(-XX:SurvivorRatio=4).</p>
 <h2 id="四、出现OutOfMemoryError异常时-转存堆信息到文件"><a href="#四、出现OutOfMemoryError异常时-转存堆信息到文件" class="headerlink" title="四、出现OutOfMemoryError异常时,转存堆信息到文件"></a>四、出现OutOfMemoryError异常时,转存堆信息到文件</h2><h3 id="4-1-执行-XX-HeapDumpOnOutOfMemoryError-XX-HeapDumpPath命令参数"><a href="#4-1-执行-XX-HeapDumpOnOutOfMemoryError-XX-HeapDumpPath命令参数" class="headerlink" title="4.1 执行-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath命令参数"></a>4.1 执行-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath命令参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ java  -Xmx20m -Xms5m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=. -jar *.jar</div></pre></td></tr></table></figure>
 <h3 id="4-2-执行结果"><a href="#4-2-执行结果" class="headerlink" title="4.2 执行结果"></a>4.2 执行结果</h3><p>会在当前目录生成一个hprof文件(该文件可以用MAT工具打开),eg:java_pid13656.hprof,MAT打开后如图:<br><img src="/images/memory.jpg" alt="MAT分析"></p>
 <h2 id="五、设置出现OutOfMemoryError异常时-执行脚本"><a href="#五、设置出现OutOfMemoryError异常时-执行脚本" class="headerlink" title="五、设置出现OutOfMemoryError异常时,执行脚本"></a>五、设置出现OutOfMemoryError异常时,执行脚本</h2><h3 id="5-1-执行-XX-OnOutOfMemoryError命令参数"><a href="#5-1-执行-XX-OnOutOfMemoryError命令参数" class="headerlink" title="5.1 执行-XX:OnOutOfMemoryError命令参数"></a>5.1 执行-XX:OnOutOfMemoryError命令参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$  java  -Xmx20m -Xms5m -XX:OnOutOfMemoryError=<span class="string">"./*.sh %p"</span> -jar *.jar</div></pre></td></tr></table></figure>
 <h3 id="5-2-执行结果"><a href="#5-2-执行结果" class="headerlink" title="5.2 执行结果"></a>5.2 执行结果</h3><p>当系统出现OutOfMemoryError异常时,会执行shell脚本,进行相关操作(%p是当前java程序pid).</p>
-<h2 id="六、官方推荐堆内存设置比例"><a href="#六、官方推荐堆内存设置比例" class="headerlink" title="六、官方推荐堆内存设置比例"></a>六、官方推荐堆内存设置比例</h2><p>新生代占堆内存的3/8;幸存代占新生代的1/10.</p>
+<h2 id="六、设置新生代和老年代内存比例"><a href="#六、设置新生代和老年代内存比例" class="headerlink" title="六、设置新生代和老年代内存比例"></a>六、设置新生代和老年代内存比例</h2><h3 id="6-1-执行-XX-NewRatio命令参数"><a href="#6-1-执行-XX-NewRatio命令参数" class="headerlink" title="6.1 执行-XX:NewRatio命令参数"></a>6.1 执行-XX:NewRatio命令参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$   java  -Xmx20m -Xms5m -XX:+PrintGCDetails -XX:NewRatio=4 -jar *.jar</div></pre></td></tr></table></figure>
+<h3 id="6-2-执行结果"><a href="#6-2-执行结果" class="headerlink" title="6.2 执行结果"></a>6.2 执行结果</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$   Heap</div><div class="line">     PSYoungGen      total 3072K, used 1509K [0x00000000ffc00000, 0x0000000100000000, 0x0000000100000000)</div><div class="line">      eden space 2048K, 64% used [0x00000000ffc00000,0x00000000ffd496f0,0x00000000ffe00000)</div><div class="line">      from space 1024K, 18% used [0x00000000fff00000,0x00000000fff30000,0x0000000100000000)</div><div class="line">      to   space 1024K, 0% used [0x00000000ffe00000,0x00000000ffe00000,0x00000000fff00000)</div><div class="line">     ParOldGen       total 16384K, used 14715K [0x00000000fec00000, 0x00000000ffc00000, 0x00000000ffc00000)</div><div class="line">      object space 16384K, 89% used [0x00000000fec00000,0x00000000ffa5ecc0,0x00000000ffc00000)</div><div class="line">     Metaspace       used 35973K, capacity 36278K, committed 36608K, reserved 1081344K</div><div class="line">      class space    used 4688K, capacity 4762K, committed 4864K, reserved 1048576K</div></pre></td></tr></table></figure>
+<p>结果分析:<br>1.老年代(ParOldGen):16384K,新生代(PSYoungGen):3072K.<br>2.老年代和新生代比例大致为4(-XX:NewRatio=4).</p>
+<h2 id="七、官方推荐堆内存设置比例"><a href="#七、官方推荐堆内存设置比例" class="headerlink" title="七、官方推荐堆内存设置比例"></a>七、官方推荐堆内存设置比例</h2><p>新生代占堆内存的3/8;幸存代占新生代的1/10.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://orangesdk.github.io/2017/06/08/8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="残剑">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="程序员的江湖">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/08/8/" itemprop="url">jvm 配置参数(三)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-08T16:01:20+08:00">
+                2017-06-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jvm/" itemprop="url" rel="index">
+                    <span itemprop="name">jvm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>本文以ubuntu 14环境jdk8为例,介绍jvm配置参数:</p>
 
           
         
@@ -1379,7 +1517,7 @@ Old Generation 主要存放应用程序中生命周期长的存活对象.
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
