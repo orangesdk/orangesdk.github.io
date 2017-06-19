@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="本文以ubuntu 14环境jdk8为例,介绍GC参数:">
+<meta name="description" content="本文以ubuntu 14环境jdk8为例,介绍GC参数:  串行收集器: -XX:+UseSerialGC  一、串行收集器1.1 执行-XX:+UseSerialGC命令参数1$  java -XX:+UseSerialGC -jar *.jar">
 <meta name="keywords" content="jvm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GC参数">
 <meta property="og:url" content="https://orangesdk.github.io/2017/06/10/9/index.html">
 <meta property="og:site_name" content="程序员的江湖">
-<meta property="og:description" content="本文以ubuntu 14环境jdk8为例,介绍GC参数:">
-<meta property="og:updated_time" content="2017-06-09T09:17:33.739Z">
+<meta property="og:description" content="本文以ubuntu 14环境jdk8为例,介绍GC参数:  串行收集器: -XX:+UseSerialGC  一、串行收集器1.1 执行-XX:+UseSerialGC命令参数1$  java -XX:+UseSerialGC -jar *.jar">
+<meta property="og:updated_time" content="2017-06-12T02:50:08.009Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GC参数">
-<meta name="twitter:description" content="本文以ubuntu 14环境jdk8为例,介绍GC参数:">
+<meta name="twitter:description" content="本文以ubuntu 14环境jdk8为例,介绍GC参数:  串行收集器: -XX:+UseSerialGC  一、串行收集器1.1 执行-XX:+UseSerialGC命令参数1$  java -XX:+UseSerialGC -jar *.jar">
 
 
 
@@ -368,6 +368,10 @@
 
       
         <p>本文以ubuntu 14环境jdk8为例,介绍GC参数:</p>
+<ol>
+<li>串行收集器: -XX:+UseSerialGC</li>
+</ol>
+<h2 id="一、串行收集器"><a href="#一、串行收集器" class="headerlink" title="一、串行收集器"></a>一、串行收集器</h2><h3 id="1-1-执行-XX-UseSerialGC命令参数"><a href="#1-1-执行-XX-UseSerialGC命令参数" class="headerlink" title="1.1 执行-XX:+UseSerialGC命令参数"></a>1.1 执行-XX:+UseSerialGC命令参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$  java -XX:+UseSerialGC -jar *.jar</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -409,6 +413,10 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/14/20/" rel="next" title="jdk源码阅读-String类">
+                <i class="fa fa-chevron-left"></i> jdk源码阅读-String类
+              </a>
             
           </div>
 
@@ -465,8 +473,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -481,7 +498,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -492,7 +509,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -503,7 +520,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -528,6 +545,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、串行收集器"><span class="nav-number">1.</span> <span class="nav-text">一、串行收集器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-执行-XX-UseSerialGC命令参数"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 执行-XX:+UseSerialGC命令参数</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
